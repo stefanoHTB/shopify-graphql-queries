@@ -1,0 +1,55 @@
+//This is your Prisma schema file,
+//learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "mongodb"
+//   url      = env("DATABASE_URL")
+// }
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.sqlite"
+}
+
+model Session {
+  id          String    @id
+  shop        String
+  state       String
+  isOnline    Boolean   @default(false)
+  scope       String?
+  expires     DateTime?
+  accessToken String
+  userId      BigInt?
+}
+
+model Customer {
+  id    String @id
+  name  String
+  email String
+}
+
+// model Session {
+//   session_id  String    @id @default(auto()) @map("_id") @db.ObjectId
+//   id          String    @unique
+//   shop        String
+//   state       String
+//   isOnline    Boolean   @default(false)
+//   scope       String?
+//   expires     DateTime?
+//   accessToken String
+//   userId      BigInt?
+// }
+
+// model Customer {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   email     String   @unique
+//   createdAt DateTime @default(now())
+// }

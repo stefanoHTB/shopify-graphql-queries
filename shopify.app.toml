@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "2025-app"
+client_id = "ade2f653a276c3dfcfa317f4bb1a87f1"
+application_url = "https://monaco-buses-passes-complaint.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products,write_discounts,read_inventory,write_customers,read_customers,read_orders"
+
+[auth]
+redirect_urls = [
+  "https://monaco-buses-passes-complaint.trycloudflare.com/auth/callback",
+  "https://monaco-buses-passes-complaint.trycloudflare.com/auth/shopify/callback",
+  "https://monaco-buses-passes-complaint.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "oroa-development.myshopify.com"
